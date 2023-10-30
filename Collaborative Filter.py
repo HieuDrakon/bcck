@@ -2,7 +2,6 @@ import findspark
 findspark.init()
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as f
-#from pyspark.ml.feature import QuantileDiscretizer
 from flask import Flask, request
 import numpy as np
 spark = SparkSession.builder.appName("movieRecommendationPySpark").getOrCreate()
