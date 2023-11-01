@@ -59,8 +59,8 @@ def rating(usid,mv):
             userFeature = model.userFactors.filter(f.col('id') == usid ).select(f.col('features')).rdd.flatMap(lambda x: x).collect()[0]            
             itemFeature = model.itemFactors.filter(f.col('id') == mv ).select(f.col('features')).rdd.flatMap(lambda x: x).collect()[0]
             h = np.dot(userFeature, itemFeature)               
-            a = h[0]         
-            return ('rating của user cho phim: {}'.format(a))
+            a = str(h)         
+            return ('rating của user cho phim: '+a)
 
 @app.route('/top/<usid>')
 def top(usid):
